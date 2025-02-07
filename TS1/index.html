@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button id="changeColorBtn">Change Color</button>
+
+    <div class="resume-container" id="resume">
+        <div class="resume-header">
+            <h1>BERNALDO, BERYINYL C.</h1>
+            <p>Address: Bataan, Philippines</p>
+            <p>Contact No.: +63 915 697 8197</p>
+            <p>Email: iyinbernaldoemail@gmail.com</p>
+        </div>
+
+        <hr>
+
+        <div class="resume-section">
+            <h2>Objective:</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quam nam nemo laborum, necessitatibus accusantium vitae fuga provident hic repellendus quo tenetur recusandae dicta voluptatum ex officia rerum, quasi perferendis.</p>
+        </div>
+
+        <hr>
+
+        <div class="resume-section">
+            <h2>Academic Backgrounds:</h2>
+            <p><strong>Highschool - Senior Highschool:</strong> Holy Rosary Parochial Institute of Orani</p>
+            <p><strong>College:</strong> Far Eastern University, Institute of Technology</p>
+        </div>
+
+        <hr>
+
+        <div class="resume-section">
+            <h2>Skills:</h2>
+            <p><strong>Bilingual:</strong> English and Tagalog.</p>
+            <p><strong>Programming:</strong> Python, Java, C++</p>
+            <p><strong>Development:</strong> HTML/CSS/JAVASCRIPT</p>
+        </div>
+
+        <hr>
+
+        <div class="resume-image">
+            <img src="images/profile.jpg" alt="Profile Image">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("changeColorBtn").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>

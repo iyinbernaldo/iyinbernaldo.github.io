@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(236, 170, 95);
+    text-align: center;
+}
+
+button {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ab3985;
+}
+
+.resume-container {
+    background-color: rgb(235, 204, 169);
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    text-align: left;
+}
+
+.resume-header {
+    text-align: center;
+}
+
+.resume-header h1 {
+    color: black;
+}
+
+.resume-section {
+    margin-top: 20px;
+}
+
+.resume-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #221f24;
+    color: #7ec9e6;
+}
+
+.dark-mode .resume-container {
+    background-color: #211e2c;
+    color: #7ec9e6;
+}
+
+.dark-mode h1 {
+    color: #7ec9e6;
+}
