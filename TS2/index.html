@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of the Week</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="day-buttons">
+            <button id="monday">Monday</button>
+            <button id="tuesday">Tuesday</button>
+            <button id="wednesday">Wednesday</button>
+            <button id="thursday">Thursday</button>
+            <button id="friday">Friday</button>
+            <button id="saturday">Saturday</button>
+            <button id="sunday">Sunday</button>
+        </div>
+        <div id="box-container"></div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.day-buttons button');
+        const boxContainer = document.getElementById('box-container');
+        let currentBox = null;
+        let currentColor = null;
+
+        const dayColors = {
+            monday: "purple",
+            tuesday: "pink",
+            wednesday: "blue",
+            thursday: "green",
+            friday: "yellow",
+            saturday: "orange",
+            sunday: "red"
+        };
+
+        // Set initial button colors
+        buttons.forEach(button => {
+            const day = button.id;
+            button.style.backgroundColor = dayColors[day];
+        });
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const day = button.id;
+                currentColor = dayColors[day];
+                if (currentBox) {
+                  currentBox.style.animation = 'slideUp 0.5s ease-in-out forwards';
+                    setTimeout(() => {
+                        currentBox.remove();
+                        currentBox = null;
+                        createAndAnimateBox(day);
+                    }, 500);
+                } else {
+                    createAndAnimateBox(day);
+                }
+            });
+        });
+
+        function createAndAnimateBox(day) {
+            const button = document.getElementById(day);
+            const box = document.createElement('div');
+            box.classList.add('day-box');
+            box.style.backgroundColor = currentColor;
+            boxContainer.appendChild(box);
+            currentBox = box;
+
+            box.style.animation = 'slideDown 1s ease-in-out forwards';
+
+            setTimeout(() => {
+                box.style.backgroundColor = 'white';
+                box.style.border = `3px solid ${currentColor}`;
+                box.style.color = currentColor;
+                box.style.animation = '';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
