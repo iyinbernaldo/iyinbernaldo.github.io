@@ -1,0 +1,223 @@
+body {
+    background: #333 url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+#main-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, rgba(247, 156, 82, 0.95), rgba(236, 125, 34, 0.95));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#main-menu.active {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#main-menu.inactive {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#main-menu:hover:not(.inactive) {
+    background: linear-gradient(135deg, rgba(173, 110, 57, 0.95), rgba(136, 71, 18, 0.95));
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.food-item {
+    width: 250px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.food-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+#food1 { background-image: url('../images/pizza.jpg'); }
+#food2 { background-image: url('../images/burger.jpg'); }
+#food3 { background-image: url('../images/sushi.jpg'); }
+#food4 { background-image: url('../images/pasta.jpg'); }
+
+.description {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    width: 70%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 30px;
+}
+
+.food-item:hover .description {
+    opacity: 1;
+}
+
+#details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    background: rgba(247, 156, 82, 0.95);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    z-index: 1000;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    display: none;
+    align-items: center;
+}
+
+.popup-content {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    align-items: center;
+}
+
+.popup-image-container {
+    flex: 1;
+    min-width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.popup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.popup-image:hover {
+    transform: scale(1.05);
+}
+
+.popup-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.info-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.address-info {
+    flex: 1;
+}
+
+.hours-info {
+    flex: 1;
+}
+
+.divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.address, .contact, .category, .hours, .price {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.address {
+    font-weight: bold;
+}
+
+.category, .hours, .price {
+    text-transform: uppercase;
+}
+
+.description-text {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+#details h1 {
+    color: #ffcc00;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.restaurant-title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3.5em;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    width: 100%;
+    z-index: 100;
+    font-weight: bold;
+    letter-spacing: 2px;
+}

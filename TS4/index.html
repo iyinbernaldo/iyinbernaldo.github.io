@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    
+    <h1 class="restaurant-title">Restaurant Guide</h1>
+
+    <button id="main-menu" class="inactive">Main Menu</button>
+
+    <div id="menu">
+        <div id="food1" class="food-item" 
+             data-title="Bella Forno Trattoria" 
+             data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor."
+             data-popup-image="./images/pizza2.jpg"
+             data-category="ITALIAN"
+             data-hours="11AM to 10PM"
+             data-price="$12">
+            <p class="description">Bella Forno Trattoria</p>
+        </div>
+        <div id="food2" class="food-item" 
+             data-title="The Rusty Brisket" 
+             data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor."
+             data-popup-image="./images/burger2.jpg"
+             data-category="AMERICAN"
+             data-hours="11AM to 11PM"
+             data-price="$10">
+            <p class="description">The Rusty Brisket</p>
+        </div>
+        <div id="food3" class="food-item" 
+             data-title="Sakura Kai" 
+             data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor."
+             data-popup-image="./images/sushi2.jpg"
+             data-category="JAPANESE"
+             data-hours="5PM to 10PM"
+             data-price="$15">
+            <p class="description">Sakura Kai</p>
+        </div>
+        <div id="food4" class="food-item" 
+             data-title="Osteria del Sole" 
+             data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor."
+             data-popup-image="./images/pasta2.jpg"
+             data-category="ITALIAN"
+             data-hours="12PM to 9PM"
+             data-price="$14">
+            <p class="description">Osteria del Sole</p>
+        </div>
+    </div>
+
+    <div id="details" class="hidden">
+        <div class="popup-content">
+            <div class="popup-image-container">
+                <img id="detail-image" src="" alt="Food Image" class="popup-image">
+            </div>
+            <div class="popup-text">
+                <h1 id="detail-title"></h1>
+                <div class="info-section">
+                    <div class="address-info">
+                        <p class="address">76 NO. HIGHLAND AVE.,<br>MERIDINE CITY</p>
+                        <p class="contact">T: 490 244 6709<br>W: GANDG RES</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="hours-info">
+                        <p class="category">CATEGORY: <span id="detail-category"></span></p>
+                        <p class="hours">OPEN: <span id="detail-hours"></span></p>
+                        <p class="price">PRICE: <span id="detail-price"></span></p>
+                    </div>
+                </div>
+                <p id="detail-description" class="description-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const foodItems = document.querySelectorAll('.food-item');
+            const mainMenuBtn = document.getElementById('main-menu');
+            const detailsPopup = document.getElementById('details');
+            const menuContainer = document.getElementById('menu');
+
+            detailsPopup.classList.add('hidden');
+
+            foodItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    document.getElementById('detail-title').textContent = 
+                        this.getAttribute('data-title');
+                    document.getElementById('detail-description').textContent = 
+                        this.getAttribute('data-description');
+                    document.getElementById('detail-image').src = 
+                        this.getAttribute('data-popup-image');
+                    document.getElementById('detail-category').textContent = 
+                        this.getAttribute('data-category');
+                    document.getElementById('detail-hours').textContent = 
+                        this.getAttribute('data-hours');
+                    document.getElementById('detail-price').textContent = 
+                        this.getAttribute('data-price');
+
+                    menuContainer.classList.add('hidden');
+                    detailsPopup.classList.remove('hidden');
+                    detailsPopup.style.display = 'flex';
+
+                    mainMenuBtn.classList.remove('inactive');
+                    mainMenuBtn.classList.add('active');
+                });
+            });
+
+            mainMenuBtn.addEventListener('click', function() {
+                if (this.classList.contains('active')) {
+                    detailsPopup.classList.add('hidden');
+                    menuContainer.classList.remove('hidden');
+
+
+                    this.classList.remove('active');
+                    this.classList.add('inactive');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
